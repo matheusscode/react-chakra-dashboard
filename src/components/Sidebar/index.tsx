@@ -26,6 +26,7 @@ const Sidebar: React.FC = () => {
       transition="all 0.4s ease"
       p={isOpen ? "1.6rem" : "1rem"}
       bg={isOpen ? "transparent" : "primary"}
+      shadow="md"
     >
       <Flex flex="1" h="100%" w="100%" flexDirection="column">
         <Flex justifyContent={isOpen ? "flex-end" : "center"}>

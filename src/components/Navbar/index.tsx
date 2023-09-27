@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Flex,
+  Heading,
   Input,
   InputGroup,
   InputLeftElement,
@@ -28,9 +29,12 @@ const Navbar: React.FC = () => {
       gap="1rem"
       position="relative"
     >
-      <RoutePath />
+      <Flex flexDirection="column" gap="0.8rem" w="100%">
+        <RoutePath />
+        <Heading as="h3" fontSize="0.985rem">Dashboard</Heading>
+      </Flex>
 
-      <Flex gap="1rem" alignItems="center">
+      <Flex gap="1.4rem" alignItems="center">
         <InputGroup w="100%" minW="300px">
           <InputLeftElement
             children={
@@ -61,7 +65,9 @@ const Navbar: React.FC = () => {
         >
           <Flex alignItems="center" w="100%" gap="1rem">
             <Icon color="slategray" as={FaUser} />
-            <Text color="slategray">Sign In</Text>
+            <Text color="slategray" fontWeight={600}>
+              Sign In
+            </Text>
           </Flex>
         </Link>
       </Flex>

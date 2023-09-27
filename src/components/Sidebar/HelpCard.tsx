@@ -48,7 +48,7 @@ const HelpCard: React.FC<HelpCardProps> = ({ isOpen }) => {
         <Button
           w="100%"
           textTransform="uppercase"
-          fontSize="0.975rem"
+          fontSize="0.875rem"
           fontWeight="bold"
           shadow="md"
         >
