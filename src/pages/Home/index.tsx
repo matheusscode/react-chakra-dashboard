@@ -12,8 +12,10 @@ import UsersStatistics from "../../components/Statistics/UsersStatistics";
 
 
 const Home: React.FC = () => {
+
+
   return (
-    <Flex w="100%" h="100%" padding="1rem 2rem" direction="column">
+    <Flex w="100%" h="100%" padding="1rem 2rem" direction="column" >
       <Flex
         w="100%"
         justifyContent="space-between"
@@ -31,10 +33,13 @@ const Home: React.FC = () => {
 
       <Flex mt="2rem" w="100%" justifyContent="space-between" gap="1rem">
         <UsersStatistics />
-        <SalesStatistics>
-
-        </SalesStatistics>
+        <SalesStatistics />
       </Flex>
+
+
+          <Flex minH="400px" p="1rem">
+            h
+          </Flex>
     </Flex>
   );
 };

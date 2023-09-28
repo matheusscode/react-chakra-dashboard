@@ -3,7 +3,7 @@ import { Flex, Button, Box } from "@chakra-ui/react";
 import RoutesList from "./RoutesList";
 import { dashboardLinks, profileLinks } from "./links";
 import HelpCard from "./HelpCard";
-import { IoIosArrowForward } from "react-icons/io";
+import { FaBars } from "react-icons/fa";
 import { Icon } from "@chakra-ui/icons";
 
 const Sidebar: React.FC = () => {
@@ -39,10 +39,9 @@ const Sidebar: React.FC = () => {
             borderRadius="50%"
           >
             <Icon
-              as={IoIosArrowForward}
-              transition="all 0.4s ease"
-              transform={isOpen ? "rotate(180deg)" : "rotate(0)"}
-              fontSize="2.2rem"
+              as={FaBars}
+      
+              fontSize="1.8rem"
             />
           </Button>
         </Flex>

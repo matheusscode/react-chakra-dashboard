@@ -1,21 +1,80 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import Chart from "react-apexcharts";
 
-interface SalesStatisticsProps {
-  children: React.ReactNode;
-}
+interface SalesStatisticsProps {}
 
-const SalesStatistics: React.FC<SalesStatisticsProps> = ({ children }) => {
+const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
+  const [chartData, setChartData] = React.useState({
+    options: {
+      chart: {
+        id: "basic-bar",
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: "12px",
+            colors: ["#cacaca"],
+          },
+        },
+        grid: {
+          show: false,
+        },
+        tickAmount: 5,
+        max: 500,
+      },
+      xaxis: {
+        axisTicks: {
+          show: false,
+        },
+        labels: {
+          style: {
+            fontSize: "12px",
+            colors: ["#cacaca"],
+          },
+        },
+      },
+      grid: {
+        show: false,
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "16%",
+          borderRadius: 10,
+        },
+      },
+      stroke: {
+        width: 0,
+      },  
+      dataLabels: {
+        enabled: false,
+      },
+    },
+    colors: ["rgba(79, 209, 197, 0)", "rgba(79, 209, 197, 0.54)", "#2D3748"],
+    series: [
+      {
+        name: "Series 1",
+        data: [500, 200, 300, 450, 350, 500, 200, 300, 150],
+      },
+      {
+        name: "Series 2",
+        data: [200, 300, 200, 380, 500, 300, 350, 200, 350],
+      },
+    ],
+  });
+
   return (
     <Flex
-      bg="white"
-      shadow="md"
-      p="1.2rem"
-      height="100%"
-      w="100%"
+      justifyContent="space-between"
+      alignItems="center"
       flexDirection="column"
+      w="100%"
+      shadow="md"
+      bg="white"
+      p="1.2rem"
       gap="1rem"
-      maxW="900px"
+      height="460px"
+      borderRadius="12px"
     >
       <Flex w="100%">
         <Box>
@@ -30,7 +89,15 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = ({ children }) => {
           </Flex>
         </Box>
       </Flex>
-      {children}
+      <Box m="0 auto" maxW="800px" w="100%">
+        <Chart
+          options={chartData.options}
+          series={chartData.series}
+          type="area"
+          width="100%"
+          height="360px"
+        />
+      </Box>
     </Flex>
   );
 };

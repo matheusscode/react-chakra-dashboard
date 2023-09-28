@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
       p="0.8rem 2rem"
       gap="1rem"
       position="relative"
+      shadow="md"
     >
       <Flex flexDirection="column" gap="0.8rem" w="100%">
         <RoutePath />

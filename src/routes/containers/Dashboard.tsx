@@ -6,11 +6,11 @@ import Navbar from "../../components/Navbar";
 
 const Dashboard: React.FC = () => {
   return (
-    <Flex w="100%" h="100vh" bg='bg'>
+    <Flex w="100%" h="100vh" bg="bg" overflow="hidden">
       <Sidebar />
       <Stack w="100%" h="100%" bg="transparent">
         <Navbar />
-        <Box w="100%" h="100vh" bg="transparent">
+        <Box w="100%" h="100vh" bg="transparent" overflowY="scroll">
           <Outlet />
         </Box>
       </Stack>
