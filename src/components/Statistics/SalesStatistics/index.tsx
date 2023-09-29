@@ -7,7 +7,7 @@ interface SalesStatisticsProps {}
 const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
-  const [chartData, setChartData] = React.useState({
+  const chartData = {
     options: {
       chart: {
         id: "basic-bar",
@@ -63,7 +63,7 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
         data: [200, 300, 200, 380, 500, 300, 350, 200, 350],
       },
     ],
-  });
+  };
 
   return (
     <Flex

@@ -8,7 +8,7 @@ const UsersStatistics: React.FC = () => {
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
-  const [chartData, setChartData] = React.useState({
+  const chartData = {
     options: {
       chart: {
         id: "basic-bar",
@@ -64,7 +64,7 @@ const UsersStatistics: React.FC = () => {
         color: "#ffffff",
       },
     ],
-  });
+  };
 
   return (
     <Flex

@@ -23,12 +23,12 @@ const Navbar: React.FC = () => {
 
   let pathRoute;
 
-  if (location.pathname === "/dashboard") {
-    pathRoute = 'Dashboard'
+  if (location.pathname === "/") {
+    pathRoute = "Dashboard";
   } else if (location.pathname === "/billing") {
-    pathRoute = 'Billing'
-  } else if (location.pathname === '/tables') {
-    pathRoute = 'Tables'
+    pathRoute = "Billing";
+  } else if (location.pathname === "/tables") {
+    pathRoute = "Tables";
   }
 
   return (
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       shadow="md"
     >
       <Flex flexDirection="column" gap="0.8rem" w="100%">
-        <RoutePath />
+        <RoutePath route={pathRoute} />
         <Heading as="h3" fontSize="0.985rem">
           Dashboard
         </Heading>

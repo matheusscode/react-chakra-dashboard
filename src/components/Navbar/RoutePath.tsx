@@ -7,13 +7,12 @@ interface RoutePathProps {
 
 const RoutePath: React.FC<RoutePathProps> = ({ route }) => {
   return (
-    <Breadcrumb w="100%">
+    <Breadcrumb w="100%" >
       <BreadcrumbItem>
         <BreadcrumbLink href="#" color="gray.400">
           Page
         </BreadcrumbLink>
       </BreadcrumbItem>
-
       <BreadcrumbItem isCurrentPage>
         <BreadcrumbLink href="#" color="blackAlpha.900">
           {route}
