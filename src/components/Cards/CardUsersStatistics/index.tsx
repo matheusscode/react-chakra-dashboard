@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Progress, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Flex, Progress, Text, Tooltip, useMediaQuery } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { Icon } from "@chakra-ui/icons";
 
@@ -15,19 +15,22 @@ interface CardUsersStatisticsProps {
 }
 
 const CardUsersStatistics: React.FC<CardUsersStatisticsProps> = ({ card }) => {
+
+  const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
+  
   return (
-    <Box >
+    <Box maxW="150px" w="100%" >
       <Flex gap="0.4rem" alignItems="center">
         <Tooltip label={card.title} placement="top">
           <Flex
             justifyContent="center"
             alignItems="center"
-            w="40px"
-            h="40px"
+            w={isLargerThan700 ? "26px" : "40px"}
+            h={isLargerThan700 ? "26px" : "40px"}
             bg="primary"
             borderRadius="50%"
           >
-            <Icon fontSize="1.2rem" color="white" as={card.icon} />
+            <Icon fontSize={isLargerThan700 ? "0.9rem" : "1.2rem"} color="white" as={card.icon} />
           </Flex>
         </Tooltip>
         <Text fontSize="0.8rem" fontWeight="bold" color="slategray">
@@ -35,7 +38,7 @@ const CardUsersStatistics: React.FC<CardUsersStatisticsProps> = ({ card }) => {
         </Text>
       </Flex>
       <Flex flexDirection="column" gap="0.4rem">
-        <Text fontSize="1.2rem" fontWeight="bold">
+        <Text fontSize={isLargerThan700 ? "0.9rem" : "1.2rem"} fontWeight="bold">
           {card.value}
         </Text>
         <Progress value={30} borderRadius="20px" h="10px" colorScheme='teal' />

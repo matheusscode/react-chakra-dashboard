@@ -1,10 +1,12 @@
 import React from "react";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
 import Chart from "react-apexcharts";
 
 interface SalesStatisticsProps {}
 
 const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
+  const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
+
   const [chartData, setChartData] = React.useState({
     options: {
       chart: {
@@ -45,7 +47,7 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
       },
       stroke: {
         width: 0,
-      },  
+      },
       dataLabels: {
         enabled: false,
       },
@@ -71,14 +73,19 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
       w="100%"
       shadow="md"
       bg="white"
-      p="1.2rem"
+      p={isLargerThan700 ? "0 0.8rem 0 0" : "1.2rem"}
       gap="1rem"
-      height="460px"
+      height={isLargerThan700 ? "auto" : "460px"}
       borderRadius="12px"
     >
-      <Flex w="100%">
+      <Flex w="100%" p={isLargerThan700 ? "1rem 1rem 0" : "0"}>
         <Box>
-          <Heading as="h1" fontSize="1.15rem" fontWeight="bold" color="black">
+          <Heading
+            as="h1"
+            fontSize="1.255rem"
+            color="midnightblue"
+            fontWeight="bold"
+          >
             Sales overview
           </Heading>
           <Flex gap="0.4rem" alignItems="center">
@@ -89,13 +96,13 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
           </Flex>
         </Box>
       </Flex>
-      <Box m="0 auto" maxW="800px" w="100%">
+      <Box m="0 auto" maxW={"1200px"} w="100%">
         <Chart
           options={chartData.options}
           series={chartData.series}
           type="area"
           width="100%"
-          height="360px"
+          height={isLargerThan700 ? "250px" : "360px"}
         />
       </Box>
     </Flex>

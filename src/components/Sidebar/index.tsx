@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Button, Box } from "@chakra-ui/react";
+import { Flex, Button, Box, Heading } from "@chakra-ui/react";
 import RoutesList from "./RoutesList";
 import { dashboardLinks, profileLinks } from "./links";
 import HelpCard from "./HelpCard";
@@ -26,10 +26,26 @@ const Sidebar: React.FC = () => {
       transition="all 0.4s ease"
       p={isOpen ? "1.6rem" : "1rem"}
       bg={isOpen ? "transparent" : "primary"}
+      display={{ base: "none", xl: "block" }}
       shadow="md"
     >
       <Flex flex="1" h="100%" w="100%" flexDirection="column">
-        <Flex justifyContent={isOpen ? "flex-end" : "center"}>
+        <Flex
+          justifyContent={isOpen ? "flex-end" : "center"}
+          position="relative"
+        >
+          <Heading
+            as="h1"
+            fontSize="1.6rem"
+            position="absolute"
+            left="0"
+            top="12px"
+            color="primary"
+            transition="all 0.4s ease"
+            transform={isOpen ? "translateX(0)" : "translateX(-300px)"}
+          >
+            Chakra-UI
+          </Heading>
           <Button
             bg="white"
             color="primary"
@@ -38,11 +54,7 @@ const Sidebar: React.FC = () => {
             h="60px"
             borderRadius="50%"
           >
-            <Icon
-              as={FaBars}
-      
-              fontSize="1.8rem"
-            />
+            <Icon as={FaBars} fontSize="1.8rem" />
           </Button>
         </Flex>
 

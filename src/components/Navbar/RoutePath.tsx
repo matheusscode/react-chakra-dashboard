@@ -16,7 +16,7 @@ const RoutePath: React.FC<RoutePathProps> = ({ route }) => {
 
       <BreadcrumbItem isCurrentPage>
         <BreadcrumbLink href="#" color="blackAlpha.900">
-          Dashboard
+          {route}
         </BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>

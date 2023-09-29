@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
       <Sidebar />
       <Stack w="100%" h="100%" bg="transparent">
         <Navbar />
-        <Box w="100%" h="100vh" bg="transparent" overflowY="scroll">
+        <Box w="100%" h="100vh" bg="transparent" m="0 0 2rem" overflowY="scroll">
           <Outlet />
         </Box>
       </Stack>

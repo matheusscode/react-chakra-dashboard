@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Flex, IconButton } from "@chakra-ui/react";
+import { Flex, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 
@@ -10,6 +10,8 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const [isLargerThan500] = useMediaQuery("(max-width: 500px)");
 
   const handleScrollLeft = () => {
     if (scrollRef.current) {
@@ -33,10 +35,10 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
 
   return (
     <Flex
-      p="1rem"
       gap="1rem"
-      maxW="600px"
-      minH="300px"
+      maxW="1000px"
+      w="100%"
+      m="0 auto"
       h="100%"
       alignItems="center"
       justifyContent="center"
@@ -47,8 +49,9 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
         icon={<ChevronLeftIcon />}
         onClick={handleScrollLeft}
         position="absolute"
-        left="-40px"
-        top="43%"
+        display={isLargerThan500 ? "none" : "block"}
+        left="-30px"
+        top="26%"
         fontSize="2.6rem"
         w="50px"
         h="50px"
@@ -59,7 +62,6 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
       <Flex
         ref={scrollRef}
         h="100%"
-        w="100%"
         gap="1rem"
         sx={{
           "::-webkit-scrollbar": {
@@ -71,6 +73,8 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
         }}
         overflowX="scroll"
         overflowY="hidden"
+        background="transparent"
+        p="1rem 0.4rem"
         whiteSpace="nowrap"
       >
         {children}
@@ -80,8 +84,9 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
         icon={<ChevronRightIcon />}
         onClick={handleScrollRight}
         position="absolute"
-        right="-40px"
-        top="43%"
+        display={isLargerThan500 ? "none" : "block"}
+        right="-30px"
+        top="26%"
         fontSize="2.6rem"
         w="50px"
         h="50px"

@@ -8,7 +8,7 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import RoutePath from "./RoutePath";
 import { Icon } from "@chakra-ui/icons";
 import { FaUser } from "react-icons/fa";
@@ -19,6 +19,18 @@ import { AiFillSetting } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 
 const Navbar: React.FC = () => {
+  const location = useLocation();
+
+  let pathRoute;
+
+  if (location.pathname === "/dashboard") {
+    pathRoute = 'Dashboard'
+  } else if (location.pathname === "/billing") {
+    pathRoute = 'Billing'
+  } else if (location.pathname === '/tables') {
+    pathRoute = 'Tables'
+  }
+
   return (
     <Flex
       w="100%"
@@ -32,7 +44,9 @@ const Navbar: React.FC = () => {
     >
       <Flex flexDirection="column" gap="0.8rem" w="100%">
         <RoutePath />
-        <Heading as="h3" fontSize="0.985rem">Dashboard</Heading>
+        <Heading as="h3" fontSize="0.985rem">
+          Dashboard
+        </Heading>
       </Flex>
 
       <Flex gap="1.4rem" alignItems="center">

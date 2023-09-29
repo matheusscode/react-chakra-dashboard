@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Heading, Stack, Text, Tooltip } from "@chakra-ui/react";
+import { Flex, Heading, Text, Tooltip, useMediaQuery } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
 import { IconType } from "react-icons";
 
@@ -17,10 +17,14 @@ interface CardBalanceProps {
 const CardBalance: React.FC<CardBalanceProps> = ({ data }) => {
   const { icon, percentage, title, value } = data;
 
+  const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
+  const [isLargerThan1300] = useMediaQuery("(max-width: 1300px)");
+
   return (
     <Flex
       justifyContent="space-between"
-      maxW="400px"
+      maxW={isLargerThan1700 ? "inherit" : "400px"}
+      minW={isLargerThan1300 ? "300px" : "inherit"}
       w="100%"
       p="0.5rem 1rem"
       bg="white"
@@ -30,7 +34,7 @@ const CardBalance: React.FC<CardBalanceProps> = ({ data }) => {
       borderRadius="10px"
     >
       <Flex alignItems="left" direction="column" gap="0.2rem">
-        <Heading  as="h4" fontSize="0.9rem" color="slate_gray">
+        <Heading as="h4" fontSize="0.9rem" color="slate_gray">
           {title}
         </Heading>
         <Flex gap="0.4rem">

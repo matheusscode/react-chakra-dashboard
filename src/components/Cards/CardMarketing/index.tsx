@@ -7,6 +7,7 @@ import {
   Link,
   Image,
   Box,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import React from "react";
 import img from "../../../../public/assets/marketing-photo.svg";
@@ -14,6 +15,9 @@ import { NavLink } from "react-router-dom";
 
 const CardMarketing: React.FC = () => {
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
+
+  const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
+  const [isLargerThan1300] = useMediaQuery("(max-width: 1300px)");
 
   const handleHovered = () => {
     setIsHovered(true);
@@ -25,9 +29,9 @@ const CardMarketing: React.FC = () => {
 
   return (
     <Card
-      maxW="600px"
+      maxW={isLargerThan1700 ? "100%" : "600px"}
       w="100%"
-      h="300px"
+      h={isLargerThan1300 ? "200px" : isLargerThan1700 ? "300px" : "300px"}
       color="white"
       position="relative"
       borderRadius="12px"
@@ -74,7 +78,7 @@ const CardMarketing: React.FC = () => {
         </Text>
       </CardHeader>
       <CardFooter zIndex={2}>
-        <Link as={NavLink} to="/">
+        <Link as={NavLink} to="/" _hover={{textDecoration: 'underline'}}>
           Read more
         </Link>
       </CardFooter>
