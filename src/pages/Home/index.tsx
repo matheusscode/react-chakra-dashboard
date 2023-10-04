@@ -77,8 +77,8 @@ const Home: React.FC = () => {
         justifyContent="space-between"
         gap="1rem"
       >
-        <Projects />
-        <Orders />
+        <Projects isLoading={isLoading} />
+        <Orders isLoading={isLoading} />
       </Flex>
     </Flex>
   );

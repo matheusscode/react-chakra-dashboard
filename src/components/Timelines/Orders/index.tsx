@@ -1,10 +1,19 @@
-import { Flex, Heading, Icon, Stack, Text, useMediaQuery } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Icon,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React from "react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import OrderSteps from "./Step";
+import { UseLoadingProps } from "../../../types";
 
+interface OrdersProps extends UseLoadingProps {}
 
-const Orders: React.FC = () => {
+const Orders: React.FC<OrdersProps> = ({ isLoading }) => {
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
 
   return (
@@ -16,6 +25,9 @@ const Orders: React.FC = () => {
       shadow="md"
       borderRadius="12px"
       maxW={isLargerThan1700 ? "100%" : "600px"}
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
+      transition="all 0.4s ease"
     >
       <Flex w="100%" justifyContent="space-between" mb="2rem">
         <Stack spacing="0.4rem" flexDirection="column">
