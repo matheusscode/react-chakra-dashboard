@@ -41,7 +41,8 @@ const CardMarketing: React.FC<CardMarketingProps> = ({ isLoading }) => {
       overflow="hidden"
       onMouseEnter={handleHovered}
       onMouseLeave={handleUnhovered}
-      transform={isLoading ? "translateX(0)" : "translate(2000px)"}
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
       transition="all 0.4s ease"
     >
       <Image

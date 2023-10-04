@@ -21,11 +21,18 @@ import {
 import { tableData } from "./data";
 import { currencyFormatter } from "../../../utils/currencyFormatter";
 
+
+
 const TableProjects: React.FC = () => {
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
   return (
-    <TableContainer w="100%" borderRadius="12px" bg="white">
+    <TableContainer
+      w="100%"
+      borderRadius="12px"
+      bg="white"
+
+    >
       <Table variant="simple">
         <TableCaption textAlign="left">
           <Flex alignItems="center" color="slategray">
@@ -117,7 +124,7 @@ const TableProjects: React.FC = () => {
                       >{`${data.completion}%`}</Text>
                       <Tooltip
                         placement="top"
-                        borderRadius='10px'
+                        borderRadius="10px"
                         label={`Progress: ${data.completion}% completed`}
                       >
                         <Progress

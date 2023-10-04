@@ -13,11 +13,14 @@ import Projects from "../../components/Tables/Projects";
 import Authors from "../../components/Tables/Authors";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { Icon } from "@chakra-ui/icons";
+import useLoading from "../../hooks/useLoading";
 
 // import { Container } from './styles';
 
 const Tables: React.FC = () => {
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
+
+  const { isLoading } = useLoading();
 
   return (
     <Flex
@@ -27,7 +30,18 @@ const Tables: React.FC = () => {
       padding={isLargerThan700 ? "1rem" : "1rem 2rem"}
       direction="column"
     >
-      <Flex direction={"column"} w="100%" p="1rem" bg="white" shadow="md" borderRadius="10px">
+
+      <Flex
+        direction={"column"}
+        w="100%"
+        p="1rem"
+        bg="white"
+        shadow="md"
+        borderRadius="10px"
+        transition="all 0.4s ease"
+        transform={isLoading ? "translateY(0)" : "translateY(1000px)"}
+        opacity={isLoading ? "1" : "0"}
+      >
         <Box>
           <Heading color="midnightblue" as="h1" fontSize="1.8rem">
             Tables
@@ -75,8 +89,9 @@ const Tables: React.FC = () => {
           </Button>
         </Flex>
       </Flex>
-      <Authors />
-      <Projects />
+
+      <Authors isLoading={isLoading} />
+      <Projects isLoading={isLoading} />
     </Flex>
   );
 };

@@ -78,7 +78,8 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = ({ isLoading }) => {
       gap="1rem"
       height={isLargerThan700 ? "auto" : "460px"}
       borderRadius="12px"
-      transform={isLoading ? "translateX(0)" : "translate(2000px)"}
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
       transition="all 0.4s ease"
     >
       <Flex w="100%" p={isLargerThan700 ? "1rem 1rem 0" : "0"}>

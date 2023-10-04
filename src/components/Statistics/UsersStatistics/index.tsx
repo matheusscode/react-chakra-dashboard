@@ -79,7 +79,8 @@ const UsersStatistics: React.FC<UsersStatistics> = ({ isLoading }) => {
       height={isLargerThan700 ? "auto" : "460px"}
       borderRadius="12px"
       maxW={isLargerThan1700 ? "100%" : "800px"}
-      transform={isLoading ? "translateX(0)" : "translate(-2000px)"}
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
       transition="all 0.4s ease"
     >
       <Flex w="100%">

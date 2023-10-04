@@ -6,7 +6,7 @@ export default function useLoading() {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(true);
-    }, 400);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, []);

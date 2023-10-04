@@ -4,8 +4,11 @@ import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { Icon } from "@chakra-ui/icons";
 import TableAuthors from "./TableAuthors";
+import { UseLoadingProps } from "../../../types";
 
-const Authors: React.FC = () => {
+interface AuthorsProps extends UseLoadingProps {}
+
+const Authors: React.FC<AuthorsProps> = ({ isLoading }) => {
   return (
     <Flex
       flexDirection="column"
@@ -14,6 +17,9 @@ const Authors: React.FC = () => {
       p="1.2rem 1.4rem"
       shadow="md"
       borderRadius="12px"
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
+      transition="all 0.4s ease"
     >
       <Flex w="100%" justifyContent="space-between" mb="0.8rem">
         <Stack spacing="0.4rem" flexDirection="column">

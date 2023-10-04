@@ -38,7 +38,8 @@ const CardChakraDoc: React.FC<CardChakraDocProps> = ({ isLoading }) => {
       flexDirection="column"
       h={isLargerThan1700 ? "auto" : "100%"}
       minW={isLargerThan1700 ? "100%" : "500px"}
-      transform={isLoading ? "translateX(0)" : "translate(-2000px)"}
+      opacity={isLoading ? "1" : "0"}
+      transform={isLoading ? "translateX(0)" : "translateX(-2000px)"}
       transition="all 0.4s ease"
       overflow="hidden"
     >
