@@ -48,6 +48,7 @@ const Navbar: React.FC = () => {
       shadow="md"
       transition="all 0.4s ease"
       transform={isLoading ? "translateY(0)" : "translateY(-200px)"}
+      zIndex={99}
     >
       <Flex
         display={{ base: "flex", xl: "none" }}
@@ -122,12 +123,9 @@ const Navbar: React.FC = () => {
             </Flex>
           </Link>
         </Flex>
-        <Widget label="Settings" icon={AiFillSetting}>
-          ddsadsad
-        </Widget>
-        <Widget label="Notifications" icon={IoIosNotifications}>
-          dsadsa
-        </Widget>
+        <Widget label="Settings" icon={AiFillSetting} />
+
+        <Widget label="Notifications" icon={IoIosNotifications} />
       </Flex>
     </Flex>
   );
