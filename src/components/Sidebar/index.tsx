@@ -1,12 +1,15 @@
 import React from "react";
 import { Flex, Button, Box, Heading } from "@chakra-ui/react";
-import RoutesList from "./RoutesList";
-import { dashboardLinks, profileLinks } from "./links";
+import RoutesList from "../RoutesList/RoutesList";
+import { dashboardLinks, profileLinks } from "../RoutesList/links";
 import HelpCard from "./HelpCard";
 import { FaBars } from "react-icons/fa";
 import { Icon } from "@chakra-ui/icons";
+import useLoading from "../../hooks/useLoading";
 
 const Sidebar: React.FC = () => {
+  const { isLoading } = useLoading();
+
   const [isOpen, setIsOpen] = React.useState<boolean>(
     localStorage.getItem("isOpen") === "true" || false
   );
@@ -23,11 +26,12 @@ const Sidebar: React.FC = () => {
     <Flex
       h="100%"
       w={isOpen ? "300px" : "90px"}
-      transition="all 0.4s ease"
       p={isOpen ? "1.6rem" : "1rem"}
       bg={isOpen ? "transparent" : "primary"}
       display={{ base: "none", xl: "block" }}
       shadow="md"
+      transition="all 0.4s ease"
+      transform={isLoading ? "translateX(0)" : "translateX(-200px)"}
     >
       <Flex flex="1" h="100%" w="100%" flexDirection="column">
         <Flex

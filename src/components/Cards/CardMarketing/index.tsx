@@ -12,8 +12,11 @@ import {
 import React from "react";
 import img from "../../../../public/assets/marketing-photo.svg";
 import { NavLink } from "react-router-dom";
+import { UseLoadingProps } from "../../../types";
 
-const CardMarketing: React.FC = () => {
+interface CardMarketingProps extends UseLoadingProps {}
+
+const CardMarketing: React.FC<CardMarketingProps> = ({ isLoading }) => {
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
 
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
@@ -38,6 +41,8 @@ const CardMarketing: React.FC = () => {
       overflow="hidden"
       onMouseEnter={handleHovered}
       onMouseLeave={handleUnhovered}
+      transform={isLoading ? "translateX(0)" : "translate(2000px)"}
+      transition="all 0.4s ease"
     >
       <Image
         src={img}
@@ -78,7 +83,7 @@ const CardMarketing: React.FC = () => {
         </Text>
       </CardHeader>
       <CardFooter zIndex={2}>
-        <Link as={NavLink} to="/" _hover={{textDecoration: 'underline'}}>
+        <Link as={NavLink} to="/" _hover={{ textDecoration: "underline" }}>
           Read more
         </Link>
       </CardFooter>

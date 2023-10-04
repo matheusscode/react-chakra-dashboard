@@ -21,6 +21,7 @@ const colors = {
   slate_gray: "#A0AEC0",
   grayish_gray: "#CBD5E0",
   midnight_blue: "#2D3748",
+  green_light: "#48BB78"
 };
 
 const fonts = {

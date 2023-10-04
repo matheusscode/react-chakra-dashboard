@@ -14,8 +14,11 @@ import {
 import React from "react";
 import img from "../../../../public/assets/chakra-doc.svg";
 import { NavLink } from "react-router-dom";
+import { UseLoadingProps } from "../../../types";
 
-const CardChakraDoc: React.FC = () => {
+interface CardChakraDocProps extends UseLoadingProps {}
+
+const CardChakraDoc: React.FC<CardChakraDocProps> = ({ isLoading }) => {
   const [expandedColor, setExpandedColor] = React.useState<boolean>(false);
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
   const [isLargerThan800] = useMediaQuery("(max-width: 800px)");
@@ -35,6 +38,8 @@ const CardChakraDoc: React.FC = () => {
       flexDirection="column"
       h={isLargerThan1700 ? "auto" : "100%"}
       minW={isLargerThan1700 ? "100%" : "500px"}
+      transform={isLoading ? "translateX(0)" : "translate(-2000px)"}
+      transition="all 0.4s ease"
       overflow="hidden"
     >
       <Box

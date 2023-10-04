@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text, Heading, Stack } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
-import TableDots from "./TableDots";
+import TableDots from "../TableDots";
 import TableProjects from "./TableProjects";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 

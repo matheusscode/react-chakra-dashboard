@@ -3,8 +3,11 @@ import React from "react";
 import Chart from "react-apexcharts";
 import { ACTIVE_USERS_CARDS, ActiveUsersCardProps } from "./data";
 import CardUsersStatistics from "../../Cards/CardUsersStatistics";
+import { UseLoadingProps } from "../../../types";
 
-const UsersStatistics: React.FC = () => {
+interface UsersStatistics extends UseLoadingProps {}
+
+const UsersStatistics: React.FC<UsersStatistics> = ({ isLoading }) => {
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
@@ -76,6 +79,8 @@ const UsersStatistics: React.FC = () => {
       height={isLargerThan700 ? "auto" : "460px"}
       borderRadius="12px"
       maxW={isLargerThan1700 ? "100%" : "800px"}
+      transform={isLoading ? "translateX(0)" : "translate(-2000px)"}
+      transition="all 0.4s ease"
     >
       <Flex w="100%">
         <Box m="0 auto" w="100%">

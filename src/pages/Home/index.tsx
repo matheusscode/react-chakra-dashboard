@@ -9,16 +9,23 @@ import UsersStatistics from "../../components/Statistics/UsersStatistics";
 import Projects from "../../components/Tables/Projects";
 import Orders from "../../components/Timelines/Orders";
 import Carousel from "../../components/Carousel";
+import useLoading from "../../hooks/useLoading";
 
 const Home: React.FC = () => {
+  const { isLoading } = useLoading();
+
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
   const [isLargerThan1400] = useMediaQuery("(max-width: 1400px)");
   const [isLargerThan1300] = useMediaQuery("(max-width: 1300px)");
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
-
   return (
-    <Flex w="100%" h="100%" padding={isLargerThan700 ? "1rem" : "1rem 2rem"} direction="column">
+    <Flex
+      w="100%"
+      h="100%"
+      padding={isLargerThan700 ? "1rem" : "1rem 2rem"}
+      direction="column"
+    >
       <Flex
         w="100%"
         justifyContent="space-between"
@@ -29,14 +36,14 @@ const Home: React.FC = () => {
           <>
             <Carousel>
               {BALANCE_CARDS.map((card) => (
-                <CardBalance key={card.id} data={card} />
+                <CardBalance key={card.id} data={card} isLoading={isLoading} />
               ))}
             </Carousel>
           </>
         ) : (
           <>
             {BALANCE_CARDS.map((card) => (
-              <CardBalance key={card.id} data={card} />
+              <CardBalance key={card.id} data={card} isLoading={isLoading} />
             ))}
           </>
         )}
@@ -48,8 +55,8 @@ const Home: React.FC = () => {
         w="100%"
         gap="1rem"
       >
-        <CardChakraDoc />
-        <CardMarketing />
+        <CardChakraDoc isLoading={isLoading} />
+        <CardMarketing isLoading={isLoading} />
       </Flex>
 
       <Flex
@@ -59,8 +66,8 @@ const Home: React.FC = () => {
         justifyContent="space-between"
         gap="1rem"
       >
-        <UsersStatistics />
-        <SalesStatistics />
+        <UsersStatistics isLoading={isLoading} />
+        <SalesStatistics isLoading={isLoading} />
       </Flex>
 
       <Flex

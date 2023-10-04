@@ -35,7 +35,7 @@ const Widget: React.FC<WidgetProps> = ({ icon, label, children }) => {
         borderRadius="10px"
         transition="all 0.4s ease"
         color="slategray"
-        zIndex={isOpen ? 99 : 0}
+        zIndex={isOpen ? 99 : -1}
         transform={isOpen ? "translateY(0px)" : "translateY(20px)"}
       >
         {children}

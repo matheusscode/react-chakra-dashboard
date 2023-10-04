@@ -22,7 +22,6 @@ import { tableData } from "./data";
 import { currencyFormatter } from "../../../utils/currencyFormatter";
 
 const TableProjects: React.FC = () => {
-
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
   return (
@@ -39,10 +38,15 @@ const TableProjects: React.FC = () => {
         </TableCaption>
         {tableData.map((table) => (
           <React.Fragment key={table.id}>
-            <Thead >
-              <Tr >
+            <Thead>
+              <Tr>
                 {table.columns.map((column) => (
-                  <Th p="0.8rem 0"  color="gray.400" textAlign="left" key={column}>
+                  <Th
+                    p="0.8rem 0"
+                    color="gray.400"
+                    textAlign="left"
+                    key={column}
+                  >
                     {column}
                   </Th>
                 ))}
@@ -51,7 +55,13 @@ const TableProjects: React.FC = () => {
             <Tbody>
               {table.datas.map((data) => (
                 <Tr key={data.id}>
-                  <Td minW={isLargerThan700 ? "350px" : 'inherit'}  p="0.8rem 0"  maxW="200px" display="flex" gap="1rem">
+                  <Td
+                    minW={isLargerThan700 ? "350px" : "inherit"}
+                    p="0.8rem 0"
+                    maxW="200px"
+                    display="flex"
+                    gap="1rem"
+                  >
                     <Image
                       src={data.company.brand}
                       alt={data.company.brand_description}
@@ -64,7 +74,7 @@ const TableProjects: React.FC = () => {
                       {data.company.company_name}
                     </Text>
                   </Td>
-                  <Td minW={isLargerThan700 ? "200px" : 'inherit'}  p="0.8rem 0" >
+                  <Td minW={isLargerThan700 ? "200px" : "inherit"} p="0.8rem 0">
                     <Flex>
                       {data.members.map((member) => (
                         <AvatarGroup max={5} size="sm" key={member.id}>
@@ -77,7 +87,11 @@ const TableProjects: React.FC = () => {
                       ))}
                     </Flex>
                   </Td>
-                  <Td minW={isLargerThan700 ? "200px" : 'inherit'}  p="0.8rem 0"  isNumeric>
+                  <Td
+                    minW={isLargerThan700 ? "200px" : "inherit"}
+                    p="0.8rem 0"
+                    isNumeric
+                  >
                     <Text
                       textAlign="left"
                       color="midnightblue"
@@ -89,19 +103,26 @@ const TableProjects: React.FC = () => {
                         : currencyFormatter(data.budget)}
                     </Text>
                   </Td>
-                  <Td minW={isLargerThan700 ? "200px" : 'inherit'}  p="0.8rem 0"  isNumeric>
+                  <Td
+                    minW={isLargerThan700 ? "200px" : "inherit"}
+                    p="0.8rem 0"
+                    isNumeric
+                  >
                     <Flex flexDirection="column" gap="0.4rem">
                       <Text
                         textAlign="left"
                         color="primary"
-                        fontWeight="bold"
-                        fontSize="0.875rem"
+                        fontWeight="medium"
+                        fontSize="0.975rem"
                       >{`${data.completion}%`}</Text>
                       <Tooltip
+                        placement="top"
+                        borderRadius='10px'
                         label={`Progress: ${data.completion}% completed`}
                       >
                         <Progress
                           colorScheme="teal"
+                          height="6px"
                           borderRadius="14px"
                           value={data.completion}
                         />

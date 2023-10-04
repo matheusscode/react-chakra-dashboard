@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
 import Chart from "react-apexcharts";
+import { UseLoadingProps } from "../../../types";
 
-interface SalesStatisticsProps {}
+interface SalesStatisticsProps extends UseLoadingProps {}
 
-const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
+const SalesStatistics: React.FC<SalesStatisticsProps> = ({ isLoading }) => {
   const [isLargerThan700] = useMediaQuery("(max-width: 700px)");
 
   const chartData = {
@@ -77,6 +78,8 @@ const SalesStatistics: React.FC<SalesStatisticsProps> = () => {
       gap="1rem"
       height={isLargerThan700 ? "auto" : "460px"}
       borderRadius="12px"
+      transform={isLoading ? "translateX(0)" : "translate(2000px)"}
+      transition="all 0.4s ease"
     >
       <Flex w="100%" p={isLargerThan700 ? "1rem 1rem 0" : "0"}>
         <Box>

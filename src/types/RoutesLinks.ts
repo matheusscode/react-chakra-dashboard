@@ -10,5 +10,6 @@ export interface RouteLink {
 export interface RoutesListProps {
   title?: string;
   routesLinks: RouteLink[];
-  isOpen: boolean
+  isOpen: boolean;
+  onClose?: () => void;
 }

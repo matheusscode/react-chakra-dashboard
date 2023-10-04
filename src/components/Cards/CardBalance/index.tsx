@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Heading, Text, Tooltip, useMediaQuery } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
 import { IconType } from "react-icons";
+import { UseLoadingProps } from "../../../types";
 
 interface CardData {
   title?: string;
@@ -10,11 +11,11 @@ interface CardData {
   icon: IconType;
 }
 
-interface CardBalanceProps {
+interface CardBalanceProps extends UseLoadingProps {
   data: CardData;
 }
 
-const CardBalance: React.FC<CardBalanceProps> = ({ data }) => {
+const CardBalance: React.FC<CardBalanceProps> = ({ data, isLoading }) => {
   const { icon, percentage, title, value } = data;
 
   const [isLargerThan1700] = useMediaQuery("(max-width: 1700px)");
@@ -32,6 +33,9 @@ const CardBalance: React.FC<CardBalanceProps> = ({ data }) => {
       alignItems="center"
       shadow="md"
       borderRadius="10px"
+      transform={isLoading ? "translateY(0px)" : "translateY(-200px)"}
+      opacity={isLoading ? "1" : "0"}
+      transition="all 0.4s ease"
     >
       <Flex alignItems="left" direction="column" gap="0.2rem">
         <Heading as="h4" fontSize="0.9rem" color="slate_gray">

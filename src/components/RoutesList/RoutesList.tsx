@@ -17,6 +17,7 @@ const RoutesList: React.FC<RoutesListProps> = ({
   routesLinks,
   title,
   isOpen,
+  onClose,
 }) => {
   const location = useLocation();
 
@@ -39,7 +40,12 @@ const RoutesList: React.FC<RoutesListProps> = ({
         p={isOpen ? "0.6rem 1.6rem" : "1rem 2rem"}
         {...listItemStyles}
       >
-        <Link as={NavLink} to={link.href} _hover={{ textDecoration: "none" }}>
+        <Link
+          as={NavLink}
+          to={link.href}
+          onClick={onClose}
+          _hover={{ textDecoration: "none" }}
+        >
           <Flex alignItems="center" gap="1rem">
             <Flex
               alignItems="center"
@@ -58,7 +64,10 @@ const RoutesList: React.FC<RoutesListProps> = ({
             </Flex>
             <Text
               transition="all 0.4s ease"
-              transform={isOpen ? "translateX(0)" : "translateX(-300px)"}
+              transform={{
+                base: "translateX(0)",
+                xl: isOpen ? "translateX(0)" : "translateX(-300px)",
+              }}
               fontSize="1rem"
               fontWeight="bold"
               color={isActive ? "black" : "slategray"}
