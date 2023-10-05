@@ -84,15 +84,17 @@ const TableAuthors: React.FC = () => {
                         fontSize="0.975rem"
                         fontWeight="medium"
                         color="black"
+
                       >
                         {data.member.function.function}
                       </Text>
-                      <Text fontSize="0.875rem">
+                      <Text fontSize="0.825rem" color="slategray">
                         {data.member.function.area}
                       </Text>
                     </Box>
                   </Td>
                   <Td>
+                    
                     <Box
                       bg={
                         data.member.status === "Online"

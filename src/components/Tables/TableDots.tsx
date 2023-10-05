@@ -11,7 +11,7 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 
 const TableDots: React.FC = () => {
   return (
-    <Menu>
+    <Menu placement="bottom-end">
       <MenuButton
         p="0 0.4rem"
         h="38px"

@@ -23,7 +23,7 @@ export const dashboardLinks: RouteLink[] = [
   {
     id: 3,
     text: "Billing",
-    href: " /billing",
+    href: "/billing",
     icon: BsFillCreditCardFill,
   },
   {
